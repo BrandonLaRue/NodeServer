@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<title>Dropdown Page</title>
+	</head>
+	<body>
+
+	<div class="row">
+		<div class="col-sm-1 col-xs-12">
+			<!--Dropdown Button-->
+			<div class="dropdown">
+				<button class="dropdown-toggle btn btn-primary" data-toggle="dropdown" style="margin:5px">Click Me! <span class="caret"></span></button>
+				
+				<ul class="dropdown-menu">
+					<li><a href="http://www.google.com/">Google</a></li>
+					<li><a href="http://www.facebook.com/">Facebook</a></li>
+					<li class="divider"></li>
+					<li class="dropdown-header">Only the Best!</li>
+					<li><a href="http://www.khanacademy.org/">Khan Academy</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-11 col-xs-12">
+			<!--Button Toolbar-->
+			<div class="btn-group">
+				<div class="btn btn-default">
+					<a href="http://www.google.com">Google</a>
+				</div>
+				<div class="btn btn-default">
+					<a href="http://www.khanacademy.org/">Khan Academy</a>
+				</div>
+				<div class="btn-group">
+					<div class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						Dropdown
+						<span class="caret"></span>
+					</div>
+					<ul class="dropdown-menu">
+						<li><a href="http://www.evernote.com">Evernote</a></li>
+						<li><a href="http://www.youtube.com">Youtube</a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="progress progress-striped active" style="margin:5px">
+  		<div class="progress-bar" style="width: 75%"></div>
+	</div>	
+	<div class="col-md-6">
+		<form class="form-search">
+			<input type="search" class="form-control" style="margin:5px" placeHolder="Search...">
+		</form>
+	</div>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>

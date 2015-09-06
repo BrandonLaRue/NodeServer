@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<style type="text/css">
+			#login{
+				height: 150;
+				width: 150;
+				background-color: #3399FF;
+				position: relative;
+			}
+			#login > b{
+				font-size: 42;
+				font-family: Arial, Helvetica, sans-serif;
+				position: relative;
+				top: 25px;
+				left: 25px;
+			}
+			#loginForm{
+				position: relative;
+				top: 25px;
+				left: 20px;
+			}
+			#loginForm input[type="text"], #loginform input[type="password"]{
+				border-radius: 15px;
+				border-style: hidden;
+			}
+			body{
+				margin: 5px;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+	</body>
+	</head>
+	<body>
+		<div class="btn btn-primary" id="loginButton">Login</div>
+		<div id="login">
+			<b>Login</b>
+			<form method="post" id="loginForm">
+				<label>Username: </label><input type="text" name="username"><br>
+				<label>Password: </label><input type="password" name="password"><br>
+				<input type="button" class="btn btn-default" value="Submit" name="submit">
+			</form>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				//initial page settings
+				$("#loginForm").hide();
+				$("#login").hide();
+				//events
+				$("#loginButton").click(function(){
+					$("#login").fadeToggle();
+					$("#login").animate({height:'600',opacity:'0.4'},"slow");
+					$("#login").animate({width:'800',opacity:'0.8', left:'250'},"slow", function(){
+						$("#loginForm").fadeIn();
+					});
+					$("#login").addClass("clicked");
+				});
+				$("#login").click(function(){
+					if(!($(this).hasClass("clicked"))){
+						$(this).animate({height:'600',opacity:'0.4'},"slow");
+					    $(this).animate({width:'800',opacity:'0.8', left:'250'},"slow", function(){
+					    	$("#loginForm").fadeIn();
+					    });
+					    $(this).addClass("clicked");
+					    
+					}
+					else{
+						$("#loginForm").fadeOut();
+						$(this).animate({height:'150', opacity:'1', left:'0'}, "slow");
+						$(this).animate({width:'150'}, "slow");
+						$(this).removeClass("clicked");
+					}
+					
+				});
+			});
+		</script>
+</html>

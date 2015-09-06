@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<style type="text/css">
+		.center{
+			display: block;
+    		margin-left: auto;
+    		margin-right: auto;
+		}
+		body{
+				background: rgb(220,242,242); /* Old browsers */
+				background: -moz-linear-gradient(left,  rgba(220,242,242,1) 0%, rgba(220,242,242,1) 16%, rgba(220,242,242,1) 16%, rgba(135,224,253,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(220,242,242,1)), color-stop(16%,rgba(220,242,242,1)), color-stop(16%,rgba(220,242,242,1)), color-stop(100%,rgba(135,224,253,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(left,  rgba(220,242,242,1) 0%,rgba(220,242,242,1) 16%,rgba(220,242,242,1) 16%,rgba(135,224,253,1) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(left,  rgba(220,242,242,1) 0%,rgba(220,242,242,1) 16%,rgba(220,242,242,1) 16%,rgba(135,224,253,1) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(left,  rgba(220,242,242,1) 0%,rgba(220,242,242,1) 16%,rgba(220,242,242,1) 16%,rgba(135,224,253,1) 100%); /* IE10+ */
+				background: linear-gradient(to right,  rgba(220,242,242,1) 0%,rgba(220,242,242,1) 16%,rgba(220,242,242,1) 16%,rgba(135,224,253,1) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcf2f2', endColorstr='#87e0fd',GradientType=1 ); /* IE6-9 */
+			}
+		</style>
+	</head>
+	<body id="theBody">
+		<div class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand"><img src="img/trilife-new-cut.png" style="height:40px; position: relative; top:-10px"></a>
+				
+
+					<button class="btn navbar-toggle" data-toggle="collapse" data-target=".navCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse navCollapse">
+					<ul class="navbar-menu nav navbar-nav">
+						<li class="dropdown"> 
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="http://www.google.com/">Google</a></li>
+								<li><a href="http://www.khanacademy.org/">Khan Academy</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<h3>asdsdad</h3>
+		<b>This was here first.</b>
+		<div id="output"></div>
+		<input type="text" class="center" placeholder="Type!" id="input">
+		<button class="btn btn-primary btn-lg center" onclick="addFromInput('input')">Click Me!</button>
+		<button id="can">Btn 2</button>
+		<script type="text/javascript">
+		
+			function addToPage(txt){
+				var output = document.getElementById("output");
+				var tempHeading = document.createElement("h3");
+				var text = document.createTextNode(txt);
+				tempHeading.appendChild(text);
+				output.appendChild(tempHeading);
+				input.value="";
+			};
+			function addFromInput(id){
+				addToPage(document.getElementById(id).value);
+			}
+			function Address(add, city, state, zip){
+				this.address = add;
+				this.city = city;
+				this.state = state;
+				this.zip = zip;
+			};
+			Address.prototype.printAddress = function() {
+				addToPage(this.address + ' ' + this.city + ', ' + this.state + ' ' + this.zip);
+			};
+
+			(function(){
+				ad = new Address("523 N Park Place", "Blowing Rock", "CN", "29531");
+				ad.printAddress();
+			})();
+
+			$(document).ready(function(){
+			  $("h3").click(function(){	w1
+			    $(this).hide();
+			    $("#can").addClass("btn-lg");
+			  });
+
+			  $("#can").click(function(event){
+			  	$(this).addClass("btn btn-default btn-lg btn-primary center");
+			  });
+			});
+						
+
+
+
+			
+			
+
+
+
+			
+		</script>
+		<script type="text/javascript" src="js/myJs.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>
