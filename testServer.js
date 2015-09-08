@@ -14,7 +14,6 @@ var path  = require("path");
 var port = 1337;
 var defaultPath = "C:/Users/Galbatronx/Desktop/NodeServer";	// should be the absolute location of the base folder of your web site 
 var defaultPage = "index.html";	// shouldn't begin with a '/'
-console.log($NODE_PATH);
 
 /*
 	A simple server that runs on the given port and responds with content
