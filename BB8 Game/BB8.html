@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="BB8!">
+	<head>
+		<title>Robots!</title>
+		<style type="text/css">
+			img {
+				width:300px;
+				height:300px;
+			}
+			table, td{
+				border: 0px;
+				padding: 0px;
+				border-collapse: collapse;
+			}
+			img {
+				display: block;
+			}
+			th {
+				text-align: center;
+				font-family: cursive;
+				font-style: oblique;
+				font-size: 42px;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+	<body ng-controller="PictureController">
+	
+	    <table>
+	        <thead>
+	        	<th></th>
+	            <th>BB8!</th>
+	        	<th></th>
+	        </thead>
+	        <tbody>
+	            <tr>
+	                <td>
+	                	<photo pic="actualArray[0]" ng-click="changeValue(0)"></photo>
+	                </td>
+	                <td>
+	                	<photo pic="actualArray[1]" ng-click="changeValue(1)"></photo>
+	                </td>
+	                <td>
+	                	<photo pic="actualArray[2]" ng-click="changeValue(2)"></photo>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                	<photo pic="actualArray[3]" ng-click="changeValue(3)"></photo>
+	                </td>
+	                <td>
+	                	<photo pic="actualArray[4]" ng-click="changeValue(4)"></photo>
+	                </td>
+	                <td>
+	                	<photo pic="actualArray[5]" ng-click="changeValue(5)"></photo>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                	<photo pic="actualArray[6]" ng-click="changeValue(6)"></photo>
+	                </td>
+	                <td>
+	                	<photo pic="actualArray[7]" ng-click="changeValue(7)"></photo>
+	                </td>
+	                <td>
+	                	<photo pic="actualArray[8]" ng-click="changeValue(8)"></photo>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+		
+		    
+	    <!-- Modules -->
+	    <script type="text/javascript">
+	    	var app = angular.module('BB8!', []);
+	    </script>
+
+	    <!-- Controllers -->
+	    <script type="text/javascript">
+	    	app.controller('PictureController', ['$scope', function($scope) {
+
+	    		//pictures for game
+	    		$scope.bb = 'http://pisces.bbystatic.com/image2/BestBuy_US/images/products/4316/4316601_sd.jpg';
+
+	    		$scope.banana = 'http://img.thrfun.com/img/003/946/bananas_s.jpg';
+
+	    		$scope.white = 'https://s.graphiq.com/sites/default/files/2307/media/images/White_430113_i0.png';
+
+				// load sound effects
+				var bla = new Audio("bla.wav"); 
+				var chomp = new Audio("chomp.wav");
+
+				// initialize field to bananas
+				$scope.actualArray = new Array(9);
+				for(var i = 0; i < 9; i++) {
+					$scope.actualArray[i] = $scope.banana;
+				}
+
+				// when picture is clicked
+				$scope.changeValue = function(index) {
+					// if clicked on the robot
+					if($scope.actualArray[index] == $scope.bb) {
+						// play throw up song
+						bla.play();
+
+						// move the robot
+						$scope.actualArray[(index + 5) % 9] = $scope.bb;
+
+						// put banana where robot was
+						$scope.actualArray[index] = $scope.banana; 
+					}
+					else {
+						// play eating sound
+						chomp.play();
+
+						// make where the robot is white
+						for(var i = 0; i < 9; i++) {
+							if($scope.actualArray[i] == $scope.bb) {
+								$scope.actualArray[i] = $scope.white;
+							}	
+						}
+
+						// put the robot where clicked
+						$scope.actualArray[index] = $scope.bb;	
+					}	
+				};
+	    	}]);
+	    </script>
+
+	    <!-- Directives -->
+	    <script type="text/javascript">
+	    	app.directive('photo', function() {
+	    		return {
+	    			restrict: 'E',
+	    			scope: {
+	    				pic: '='
+	    			},
+	    			template: '<img src="{{ pic }}" />'
+	    		};
+	    	});
+	    </script>
+	</body>
+</html>

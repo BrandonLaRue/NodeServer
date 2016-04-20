@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dvorak Translator</title>
+
+		<style type="text/css">
+			.button {
+				background-color: #7BAFD4;
+				padding: 5px;
+				border-radius: 15%; 
+			}
+			.textbox {
+				width: 450px;
+				height: 150px;
+			}
+			.dispBox {
+				width: 500px;
+			}
+		</style>
+
+		<!-- Include angular.js-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+	<body ng-app="DvorakTranslator">
+		<div ng-controller="translator">
+			<div class="dispBox">
+				<h3>Dvorak on English keyboard</h3>
+				<input class="textbox" type="text" ng-model="dvorakText" ng-keyup="$event.keyCode == 13 && translate()"></input>
+
+				<h3>English</h3>
+				<p>{{ englishText }}</p>
+
+				<span class="button" ng-click="translate()">Submit</span>
+	
+			</div>
+		</div>
+
+		
+		<!-- Modules -->
+		<script type="text/javascript">
+			var app = angular.module("DvorakTranslator", []);
+		</script>
+
+		<!-- Controllers-->
+		<script type="text/javascript">
+			app.controller("translator", ['$scope', function($scope) {
+
+				$scope.test = "hello";
+
+				var dvorakAlpha ="'=.pyfgcrl,?aoeuidhtns-/qjkxbmwvz'=.PYFGCRL,?AOEUIDHTNS-/QJKXBMWVZ";
+				var englishAlpha = "qwertyuiop[]asdfghjkl;'zxcvbnm,./QWERTYUIOP[]ASDFGHJKL;'ZXCVBNM,./";
+
+				$scope.translate = function() {
+					$scope.englishText = "";
+					for(var i = 0; i < $scope.dvorakText.length; i++) {
+						if(englishAlpha.indexOf($scope.dvorakText.charAt(i)) != -1) {
+							$scope.englishText += dvorakAlpha.charAt(englishAlpha.indexOf($scope.dvorakText.charAt(i)));	
+						}
+						else {
+							$scope.englishText += $scope.dvorakText.charAt(i);
+						}
+						
+					}
+				};
+			}]);
+		</script>
+	</body>
+</html>
