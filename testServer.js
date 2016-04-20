@@ -12,7 +12,7 @@ var fs = require("fs");
 var path  = require("path");
 
 var port = 1337;
-var defaultPath = "C:/Users/Galbatronx/Desktop/NodeServer";	// should be the absolute location of the base folder of your web site 
+var defaultPath = "C:/Users/Galbatronx/Desktop/NodeServer";	// should be the absolute location of the base directory of your site 
 var defaultPage = "index.html";	// shouldn't begin with a '/'
 
 /*
